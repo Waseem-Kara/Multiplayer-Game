@@ -1,42 +1,43 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by 1406646 on 15/03/2017.
  */
 public class Frame extends JFrame {
 
-    private Frame()
+
+    public Frame()
     {
-        /*// Sets the title for this frame.
-        this.setTitle("Space Race");
-
-        // Size of the frame.
-        this.setSize(900, 700);
-        // Puts frame to center of the screen.
-        this.setLocationRelativeTo(null);
-        // So that frame cannot be resizable by the user.
-        this.setResizable(false);
-
-        // Exit the application when user close frame.
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        this.setVisible(true);*/
-
         Panel panel = new Panel();
-        JFrame frame = new JFrame("Space Race");
-
+        JFrame frame = new JFrame("Racing game");
+        panel.setBackground(Color.black);
         frame.add(panel);
-        frame.setSize(900, 700);
-        frame.setLocationRelativeTo(null);
+        frame.setSize(850, 650);
+
+        //Frame set to one size
         frame.setResizable(false);
+
+        //Allow X to exit program
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //Set frame to visible
         frame.setVisible(true);
-        panel.Animation();
+
+        //Allow keyboard input
+        frame.addKeyListener(panel);
+
+        //Set frame to middle of the screen
+        frame.setLocationRelativeTo(null);
+
+        panel.RocketBoundary(frame);
     }
 
     public static void main(String[] args)
     {
-        new Frame();
+        //Calls frame default constructor
+        Frame frame = new Frame();
+
     }
 }
 
